@@ -1,5 +1,28 @@
 @import "tailwindcss";
 
+/* Lock viewport and disable root bouncing/rubber-banding */
+html,
+body,
+#root {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  overscroll-behavior: none;
+  position: fixed;
+}
+
+body {
+  position: fixed;
+  left: 0;
+  top: 0;
+}
+
+/* Enable momentum scrolling in inner scrollable regions and contain overscroll chain */
+.overflow-y-auto {
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior-y: contain;
+}
+
 /* Hide scrollbar for Chrome, Safari and Opera */
 .scrollbar-none::-webkit-scrollbar {
   display: none;
