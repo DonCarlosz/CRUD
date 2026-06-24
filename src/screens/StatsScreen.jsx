@@ -17,10 +17,11 @@ export default function StatsScreen() {
       if (s.gender === 'Female') females++;
       
       // Match the first digit to categorize into levels
-      if (s.level?.startsWith('1')) levels['100L']++;
-      else if (s.level?.startsWith('2')) levels['200L']++;
-      else if (s.level?.startsWith('3')) levels['300L']++;
-      else if (s.level?.startsWith('4')) levels['400L']++;
+      const levelStr = s.level ? String(s.level) : '';
+      if (levelStr.startsWith('1')) levels['100L']++;
+      else if (levelStr.startsWith('2')) levels['200L']++;
+      else if (levelStr.startsWith('3')) levels['300L']++;
+      else if (levelStr.startsWith('4')) levels['400L']++;
     });
 
     setStats({ total: data.length, males, females, levels });

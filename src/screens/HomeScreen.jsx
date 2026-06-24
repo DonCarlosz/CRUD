@@ -35,9 +35,13 @@ export default function HomeScreen() {
   };
 
   const filteredStudents = students.filter(s => {
-    const matchesSearch = s.name?.toLowerCase().includes(search.toLowerCase()) || 
-                          s.matNumber?.toLowerCase().includes(search.toLowerCase());
-    const matchesLevel = activeLevel === 'All' || (s.level && s.level.startsWith(activeLevel.charAt(0)));
+    const nameStr = s.name ? String(s.name) : '';
+    const matStr = s.matNumber ? String(s.matNumber) : '';
+    const levelStr = s.level ? String(s.level) : '';
+
+    const matchesSearch = nameStr.toLowerCase().includes(search.toLowerCase()) || 
+                          matStr.toLowerCase().includes(search.toLowerCase());
+    const matchesLevel = activeLevel === 'All' || (levelStr && levelStr.startsWith(activeLevel.charAt(0)));
     return matchesSearch && matchesLevel;
   });
 

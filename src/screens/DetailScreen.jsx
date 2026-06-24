@@ -40,12 +40,7 @@ export default function DetailScreen() {
     );
   }
 
-  const DetailRow = ({ label, value }) => (
-    <div className="bg-white rounded-xl border-2 border-dashed border-gray-300 p-4 flex justify-between items-center shadow-sm">
-      <span className="text-xs text-gray-400 font-medium">{label}</span>
-      <span className="text-sm text-gray-800 font-bold text-right ml-4 flex-1 truncate">{value}</span>
-    </div>
-  );
+
 
   return (
     <div className="min-h-screen bg-[#f0ede8] text-gray-800 flex flex-col font-sans">
@@ -128,3 +123,10 @@ export default function DetailScreen() {
     </div>
   );
 }
+
+const DetailRow = ({ label, value }) => (
+  <div className="bg-white rounded-xl border-2 border-dashed border-gray-300 p-4 flex justify-between items-center shadow-sm">
+    <span className="text-xs text-gray-400 font-medium">{label}</span>
+    <span className="text-sm text-gray-800 font-bold text-right ml-4 flex-1 truncate">{value}</span>
+  </div>
+);
