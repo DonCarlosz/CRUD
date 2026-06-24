@@ -43,9 +43,9 @@ export default function DetailScreen() {
 
 
   return (
-    <div className="min-h-screen bg-[#f0ede8] text-gray-800 flex flex-col font-sans">
+    <div className="h-screen overflow-hidden bg-[#f0ede8] text-gray-800 flex flex-col font-sans">
       {/* Hero Section */}
-      <div className="bg-[#2c2c54] p-6 flex flex-col items-center shadow-md relative">
+      <div className="bg-[#2c2c54] p-6 flex flex-col items-center shadow-md relative shrink-0">
         <div className="w-full flex justify-between items-center mb-4">
           <button 
             onClick={() => navigate(-1)} 
@@ -68,7 +68,7 @@ export default function DetailScreen() {
       </div>
 
       {/* Profile Detail Fields */}
-      <div className="p-6 flex-1 flex flex-col max-w-md mx-auto w-full gap-3 pb-20">
+      <div className="p-6 flex-1 overflow-y-auto max-w-md mx-auto w-full flex flex-col gap-3 pb-28">
         <DetailRow label="Full Name" value={student.name} />
         <DetailRow label="Mat Number" value={student.matNumber} />
         <DetailRow label="Date of Birth" value={student.dob || 'Not provided'} />

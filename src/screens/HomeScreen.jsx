@@ -46,9 +46,9 @@ export default function HomeScreen() {
   });
 
   return (
-    <div className="min-h-screen bg-[#f0ede8] pb-24 text-gray-800 flex flex-col font-sans">
+    <div className="h-screen overflow-hidden bg-[#f0ede8] text-gray-800 flex flex-col font-sans">
       {/* Topbar */}
-      <div className="bg-[#2c2c54] p-4 flex items-center justify-between shadow-md">
+      <div className="bg-[#2c2c54] p-4 flex items-center justify-between shadow-md shrink-0">
         <div className="flex items-center gap-3">
           <div className="w-9 h-9 bg-[#e8d5b7] rounded-lg flex items-center justify-center text-lg select-none">🎓</div>
           <div>
@@ -102,7 +102,7 @@ export default function HomeScreen() {
       </div>
 
       {/* List */}
-      <div className="flex-1 px-4 pb-20">
+      <div className="flex-1 px-4 pb-28 overflow-y-auto">
         {filteredStudents.map(item => (
           <div 
             key={item.id} 

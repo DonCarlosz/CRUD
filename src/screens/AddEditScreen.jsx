@@ -13,6 +13,10 @@ export default function AddEditScreen() {
   const [department, setDepartment] = useState('Computer Science');
   const [gender, setGender] = useState('Male');
 
+  // Custom Warning Modal State
+  const [isAlertVisible, setAlertVisible] = useState(false);
+  const [alertMessage, setAlertMessage] = useState('');
+
   useEffect(() => {
     if (id) {
       const students = getStudents();
@@ -30,7 +34,8 @@ export default function AddEditScreen() {
 
   const handleSave = () => {
     if (!name || !matNumber) {
-      alert('Name and Mat Number are required');
+      setAlertMessage('Name and Matriculation Number are required fields.');
+      setAlertVisible(true);
       return;
     }
     saveStudent({ id, name, matNumber, dob, level, department, gender });
@@ -38,9 +43,9 @@ export default function AddEditScreen() {
   };
 
   return (
-    <div className="min-h-screen bg-[#f0ede8] text-gray-800 flex flex-col font-sans">
+    <div className="h-screen overflow-hidden bg-[#f0ede8] text-gray-800 flex flex-col font-sans">
       {/* Header */}
-      <div className="bg-[#2c2c54] p-4 flex items-center shadow-md">
+      <div className="bg-[#2c2c54] p-4 flex items-center shadow-md shrink-0">
         <button 
           onClick={() => navigate(-1)} 
           className="mr-4 text-[#e8d5b7] text-2xl font-bold hover:text-[#dfc5a0] transition-colors cursor-pointer bg-transparent border-0 outline-none select-none"
@@ -52,7 +57,7 @@ export default function AddEditScreen() {
         </h1>
       </div>
 
-      <div className="p-6 flex-1 flex flex-col max-w-md mx-auto w-full gap-4 pb-20">
+      <div className="p-6 flex-1 overflow-y-auto max-w-md mx-auto w-full flex flex-col gap-4 pb-28">
         
         {/* Matriculation Number */}
         <div className="flex flex-col gap-1.5">
@@ -156,6 +161,25 @@ export default function AddEditScreen() {
         </button>
 
       </div>
+
+      {/* Custom Validation Warning Modal */}
+      {isAlertVisible && (
+        <div className="fixed inset-0 bg-black/60 flex items-center justify-center p-6 z-50 animate-fade-in">
+          <div className="bg-[#f0ede8] w-full max-w-sm rounded-2xl border-2 border-dashed border-[#2c2c54] p-6 flex flex-col items-center text-center shadow-2xl">
+            <span className="text-4xl mb-3 select-none">⚠️</span>
+            <h3 className="text-lg font-bold text-[#2c2c54] mb-2">Required Fields</h3>
+            <p className="text-sm text-gray-600 mb-6 leading-relaxed">
+              {alertMessage}
+            </p>
+            <button 
+              onClick={() => setAlertVisible(false)} 
+              className="w-full py-3 bg-[#2c2c54] text-white rounded-xl text-center font-bold hover:bg-[#3b3b75] transition-colors cursor-pointer"
+            >
+              OK
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

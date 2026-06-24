@@ -28,9 +28,9 @@ export default function StatsScreen() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-[#f0ede8] text-gray-800 flex flex-col font-sans">
+    <div className="h-screen overflow-hidden bg-[#f0ede8] text-gray-800 flex flex-col font-sans">
       {/* Topbar */}
-      <div className="bg-[#2c2c54] p-4 flex items-center shadow-md">
+      <div className="bg-[#2c2c54] p-4 flex items-center shadow-md shrink-0">
         <div className="w-9 h-9 bg-[#e8d5b7] rounded-lg flex items-center justify-center mr-3 text-lg select-none">📊</div>
         <div>
           <h1 className="text-white font-bold text-sm leading-tight">Department Analytics</h1>
@@ -38,7 +38,7 @@ export default function StatsScreen() {
         </div>
       </div>
 
-      <div className="p-4 flex-1 flex flex-col max-w-md mx-auto w-full gap-4 pb-24">
+      <div className="p-4 flex-1 overflow-y-auto max-w-md mx-auto w-full flex flex-col gap-4 pb-28">
         {/* Hero Stat */}
         <div className="bg-[#2c2c54] rounded-2xl p-6 flex flex-col items-center shadow-md">
           <span className="text-[#e8d5b7] text-[10px] tracking-widest mb-1.5 uppercase font-bold">TOTAL REGISTERED</span>
